@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-customer: #00DDB3; /* Vibrant Mint / Aqua */
+  --color-manager: #18223B;  /* Dark Navy Blue */
+  --color-growth: #00DDB3;   /* Aqua Mint Accent */
+  --color-empathy: #6366F1;  /* Soft Indigo Accent */
+  --color-clarity: #F8FAFC;  /* Crisp Off-White */
+}
+
+@layer base {
+  body {
+    @apply bg-[#F1F5F9] text-slate-800 antialiased;
+  }
+
+  input, select, textarea {
+    @apply bg-slate-900/90 border-slate-800 text-clarity placeholder:text-slate-500 focus:border-customer focus:ring-1 focus:ring-customer focus:outline-none transition-all;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(30, 58, 138, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(167, 139, 250, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(167, 139, 250, 0.6);
+}
+
+/* Palette utility classes */
+/* Customer / Accent Aqua Teal */
+.panel-customer {
+  background: rgba(0, 221, 179, 0.08);
+  border: 1px solid rgba(0, 221, 179, 0.25);
+}
+.chat-bubble-customer {
+  background: rgba(0, 221, 179, 0.15);
+  border: 1px solid rgba(0, 221, 179, 0.3);
+  color: #F8FAFC;
+}
+
+/* Manager - Deep Dark Navy (#18223B & #0F172A) */
+.header-manager {
+  background: #F8FAFC;
+  border-bottom: 1px solid #E2E8F0;
+}
+.sidebar-manager {
+  background: #18223B;
+}
+
+/* Primary Teal / Mint CTA Buttons & Elements */
+.btn-growth {
+  background-color: #00DDB3;
+  color: #0F172A;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(0, 221, 179, 0.25);
+  transition: all 0.2s ease-in-out;
+}
+.btn-growth:hover {
+  background-color: #00C49F;
+  box-shadow: 0 6px 20px rgba(0, 221, 179, 0.4);
+  transform: translateY(-1px);
+}
+.kpi-growth {
+  background: rgba(0, 221, 179, 0.08);
+  border: 1px solid rgba(0, 221, 179, 0.25);
+}
+
+/* Clean Light Cards & Soft Empathy Accents */
+.card-empathy {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  transition: all 0.2s ease-in-out;
+}
+.card-empathy:hover {
+  background: #FFFFFF;
+  border-color: #CBD5E1;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Clean light layout panel & card styles */
+.glass-panel {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.glass-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-card:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
