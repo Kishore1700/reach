@@ -220,6 +220,29 @@ export function updateLeadStatus(leadId: string, newStatus: LeadStatus, lostReas
   return true;
 }
 
+/** Convert / Create Opportunity from Lead */
+export function createOpportunity(oppData: Omit<Opportunity, 'id' | 'weightedRevenue' | 'stageDate'>): Opportunity {
+  const numericId = Date.now();
+  const newId = `opp-${numericId.toString().slice(-4)}`;
+  const weightedRevenue = Math.round((oppData.expectedValue * oppData.probability) / 100);
+
+  const newOpp: Opportunity = {
+    ...oppData,
+    id: newId,
+    weightedRevenue,
+    stageDate: new Date().toISOString().slice(0, 10)
+  };
+
+  opportunities.update(list => [newOpp, ...list]);
+  updateLeadStatus(oppData.leadId, 'OPPORTUNITY');
+
+  logActivity('OPPORTUNITY', newId, 'OPPORTUNITY_CREATED', `Opportunity '${newOpp.title}' created (Val: $${newOpp.expectedValue})`);
+  logAudit('OPPORTUNITY_CREATED', 'Opportunity', newId, [{ field: 'expectedValue', oldValue: null, newValue: newOpp.expectedValue.toString() }]);
+
+  showToast(`Opportunity '${newOpp.title}' created successfully`);
+  return newOpp;
+}
+
 /** Convert Lead to Customer when WON */
 function handleLeadWonConversion(lead: Lead) {
   const existingCustomers = get(customers);
