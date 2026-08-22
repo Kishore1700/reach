@@ -12,11 +12,28 @@
 
 @layer base {
   body {
-    @apply bg-[#F1F5F9] text-slate-800 antialiased;
+    background-color: #F1F5F9;
+    color: #1E293B;
+    -webkit-font-smoothing: antialiased;
   }
 
   input, select, textarea {
-    @apply bg-slate-900/90 border-slate-800 text-clarity placeholder:text-slate-500 focus:border-customer focus:ring-1 focus:ring-customer focus:outline-none transition-all;
+    background-color: rgba(15, 23, 42, 0.9);
+    border-color: #1E293B;
+    color: #F8FAFC;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  input::placeholder, select::placeholder, textarea::placeholder {
+    color: #64748B;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: #00DDB3;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
   }
 }
 
