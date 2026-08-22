@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { invoices, customers, recordPayment } from '$lib/stores/crmStore';
+  import { invoices, customers } from '$lib/stores/crmStore';
   import type { Invoice } from '$lib/types/crm';
   import Breadcrumb from '$lib/components/layout/Breadcrumb.svelte';
   import Badge from '$lib/components/common/Badge.svelte';
   import PaymentModal from '$lib/components/crm/PaymentModal.svelte';
-  import { DollarSign, Wallet, CheckCircle, AlertCircle } from 'lucide-svelte';
+  import { Wallet } from 'lucide-svelte';
 
   let selectedInvoice: Invoice | null = null;
   let showPaymentModal = false;
