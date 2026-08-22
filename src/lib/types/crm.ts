@@ -74,6 +74,7 @@ export interface Customer {
   segment?: CustomerSegment;
   originalSource?: LeadSource;
   campaignId?: string;
+  leadId?: string;
   created_at: string;
   createdDate?: string;
   totalSpent?: number;
@@ -394,6 +395,7 @@ export interface Opportunity {
   expectedCloseDate: string;
   assignedSalesperson: string;
   stage: 'REQUIREMENT_ANALYSIS' | 'PROPOSAL_SENT' | 'NEGOTIATION' | 'CLOSED_WON' | 'CLOSED_LOST';
+  stageDate?: string;
   notes: string;
 }
 

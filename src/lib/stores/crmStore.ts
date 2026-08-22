@@ -421,7 +421,7 @@ export function recordPayment(invoiceId: string, amount: number, method: Payment
     customer_id: targetInvoice.customer_id || 101,
     quotation_id: targetInvoice.quotation_id || 301,
     amount,
-    payment_method: method,
+    payment_method: method || 'BANK_TRANSFER',
     transaction_reference: reference,
     payment_status: 'SUCCESS',
     payment_date: new Date().toISOString(),
